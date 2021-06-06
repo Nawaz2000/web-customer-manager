@@ -34,5 +34,12 @@ public class CustomerDAOimpl {
 		Session session = sessionFactory.getCurrentSession();
 		return session.get(Customer.class, id);
 	}
+
+	public void deleteCustomer(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		Customer retrievedCustomer = session.get(Customer.class, id);
+		session.delete(retrievedCustomer);
+		
+	}
 	
 }
