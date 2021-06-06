@@ -19,7 +19,7 @@ public class CustomerService {
 	
 	@Transactional
 	public void addCustomer(Customer customer) {
-		
+		customerDAO.addCustomer(customer);
 	}
 	
 	@Transactional

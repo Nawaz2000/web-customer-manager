@@ -17,8 +17,7 @@ public class CustomerDAOimpl {
 	@Qualifier("sessionFactory")
 	SessionFactory sessionFactory;
 	
-	public void addCustomer(Customer customer) {
-		
+	public void addCustomer(Customer customer) {	
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(customer);
 		
