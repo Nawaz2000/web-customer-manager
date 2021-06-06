@@ -105,5 +105,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-websocket-5.3.7-sources.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/stax-ex-1.8.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/txw2-2.3.1.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javax.servlet.jsp.jstl-1.2.1.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javax.servlet.jsp.jstl-api-1.2.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
