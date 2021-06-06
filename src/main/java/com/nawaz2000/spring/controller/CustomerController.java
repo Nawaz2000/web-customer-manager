@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nawaz2000.spring.entity.Customer;
 import com.nawaz2000.spring.service.CustomerService;
@@ -42,6 +43,14 @@ public class CustomerController {
 		customerService.addCustomer(customer);
 		return "redirect:/customer/list";
 		
+	}
+	
+	@GetMapping("/showCustomerUpdateForm")
+	public String showCustomerUpdateForm(Model model, @RequestParam("customerId") int id) {
+		System.out.println("entered update form");
+		Customer retrievedCustomer = customerService.getCustomer(id);
+		model.addAttribute("customer", retrievedCustomer);
+		return "customer-form";
 	}
 	
 }

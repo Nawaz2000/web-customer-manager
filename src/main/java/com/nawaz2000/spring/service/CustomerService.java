@@ -26,6 +26,11 @@ public class CustomerService {
 	public List<Customer> getAllCustomers(){
 		return customerDAO.listCustomers();
 	}
+
+	@Transactional
+	public Customer getCustomer(int id) {
+		return customerDAO.getCustomer(id);
+	}
 	
 	
 }

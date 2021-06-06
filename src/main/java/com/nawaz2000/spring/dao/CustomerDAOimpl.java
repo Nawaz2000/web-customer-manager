@@ -29,5 +29,10 @@ public class CustomerDAOimpl {
 				Customer.class).getResultList();
 		return customerList;
 	}
+
+	public Customer getCustomer(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		return session.get(Customer.class, id);
+	}
 	
 }
