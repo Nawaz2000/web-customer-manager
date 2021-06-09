@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "customer")
@@ -16,12 +19,19 @@ public class Customer {
 	@Column(name = "id")
 	private int id;
 	
+	@NotNull(message = "Required field")
+	@Size(min = 1, message = "Required field")
 	@Column(name = "first_name")
 	private String firstName;
 	
+	@NotNull(message = "Required field")
+	@Size(min = 1, message = "Required field")
 	@Column(name = "last_name")
 	private String lastName;
 	
+	@NotNull(message = "Required field")
+	@Size(min = 1, message = "Required field")
+	@Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "enter a valid email")
 	@Column(name = "email")
 	private String email;
 	

@@ -16,6 +16,10 @@
 		  rel="stylesheet"
 		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css"/>
 		  
+	<style type="text/css">
+		.error{color: red;}
+	</style>
+		  
 </head>
 <body>
 
@@ -34,16 +38,20 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><label>First Name:</label></td><td><form:input path="firstName"/></td>							
+						<td><label>First Name:</label></td><td><form:input path="firstName"/></td>
+						<td><form:errors cssClass="error" path="firstName"></form:errors></td>							
 					</tr>
 					<tr>
 						<td><label>Last Name:</label></td><td><form:input path="lastName"/></td>
+						<td><form:errors cssClass="error" path="lastName"></form:errors></td>
 					</tr>
 					<tr>
 						<td><label>Email:</label></td><td><form:input path="email"/></td>
+						<td><form:errors cssClass="error" path="email"></form:errors></td>
 					</tr>
 					<tr>
 						<td><label></label></td><td><input type="submit" value="Save" class="save"/></td>
+						<td><label></label></td>
 					</tr>
 				</tbody>
 			</table>
