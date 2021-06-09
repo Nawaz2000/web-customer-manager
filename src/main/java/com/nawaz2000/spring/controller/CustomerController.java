@@ -39,7 +39,7 @@ public class CustomerController {
 	public String searchCustomer(Model model, @RequestParam("searchName") String searchName) {
 		List<Customer> allCustomers = customerService.searchCustomers(searchName);
 		model.addAttribute("customers", allCustomers);
-		return "list-customers";
+		return "search-result";
 	}
 	
 	@GetMapping("/list")
