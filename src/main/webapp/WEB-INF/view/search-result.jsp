@@ -1,3 +1,4 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -23,7 +24,7 @@
 	<div id = "container">
 		<div id = "content">
 			
-			<h3><strong>Search Result:</strong></h3>		
+			<h3>Search Result: </h3> Matches found: ${fn:length(customers)} <br><br>	
 			
 			<!-- add, delete, update table -->
 			<table>
