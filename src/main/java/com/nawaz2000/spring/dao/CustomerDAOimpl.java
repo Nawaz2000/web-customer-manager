@@ -48,11 +48,21 @@ public class CustomerDAOimpl {
 		Session session = sessionFactory.getCurrentSession();
 		if (searchName != null && searchName.trim().length()>0) {
 			String[] name = searchName.split("\\s+");
-			String fName = name[0];
-			String lName = name[1];
-			Query query = session.createQuery("from Customer where firstName = " + "'" + fName + "'" + " AND lastName = " + "'" + lName + "'", Customer.class);
-			System.out.println("My query: " + query);
-			return query.getResultList();
+			if (name.length == 2)
+			{
+				String fName = name[0];
+				String lName = name[1];
+				Query query = session.createQuery("from Customer where lower(firstName) = " + "'" + fName.toLowerCase() + "'" + " AND lower(lastName) = " + "'" + lName.toLowerCase() + "'", Customer.class);
+				System.out.println("My query: " + query);
+				return query.getResultList();
+			}else if(name.length == 1) {
+				String fName = name[0];
+				Query query = session.createQuery("from Customer where lower(firstName) = " + "'" + fName.toLowerCase() + "'", Customer.class);
+				System.out.println("My query: " + query);
+				return query.getResultList();
+			}else
+				return new ArrayList<Customer>();
+			
 		}else {
 			List<Customer> searchResult = new ArrayList<Customer>();
 			return searchResult;
