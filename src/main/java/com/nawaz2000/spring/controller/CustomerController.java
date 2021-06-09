@@ -54,7 +54,8 @@ public class CustomerController {
 			theCustomers = customerService.getCustomers(theSortField);
 		} else {
 			// no sort field provided ... default to sorting by last name
-			theCustomers = customerService.getCustomers(SortUtils.LAST_NAME);
+//			theCustomers = customerService.getCustomers(SortUtils.LAST_NAME);
+			theCustomers = customerService.getAllCustomers();
 		}
 
 		// add the customers to the model

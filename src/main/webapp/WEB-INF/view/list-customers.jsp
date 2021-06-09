@@ -37,6 +37,12 @@
 				<input type="submit" value="search" class="add-button">
 			</form:form>
 			
+			<!-- default sort -->
+			<c:url var="defaultSort" value="list"></c:url>
+			<a href="${defaultSort}">default sort</a>
+			
+			<br><br>
+			
 			
 			<!-- add, delete, update table -->
 			<table>
