@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nawaz2000.spring.entity.Customer;
 import com.nawaz2000.spring.service.CustomerService;
+import com.nawaz2000.spring.util.SortUtils;
 
 @Controller
 @RequestMapping("/customer")
@@ -41,12 +42,24 @@ public class CustomerController {
 		model.addAttribute("customers", allCustomers);
 		return "search-result";
 	}
-	
+
 	@GetMapping("/list")
-	public String showCustomers(Model model) {
-		System.out.println("Hi there");
-		List<Customer> allCustomers = customerService.getAllCustomers();
-		model.addAttribute("customers", allCustomers);
+	public String showCustomers(Model model, @RequestParam(required = false, name =  "sort") String sort) {
+		// get customers from the service
+		List<Customer> theCustomers = null;
+
+		// check for sort field
+		if (sort != null) {
+			int theSortField = Integer.parseInt(sort);
+			theCustomers = customerService.getCustomers(theSortField);
+		} else {
+			// no sort field provided ... default to sorting by last name
+			theCustomers = customerService.getCustomers(SortUtils.LAST_NAME);
+		}
+
+		// add the customers to the model
+		model.addAttribute("customers", theCustomers);
+
 		return "list-customers";
 	}
 

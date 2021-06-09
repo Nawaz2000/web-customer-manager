@@ -43,6 +43,11 @@ public class CustomerService {
 		List<Customer> searchResult = customerDAO.searchCustomers(searchName);
 		return searchResult;
 	}
+
+	@Transactional
+	public List<Customer> getCustomers(int sortField) {
+		return customerDAO.getCustomers(sortField);
+	}
 	
 	
 }

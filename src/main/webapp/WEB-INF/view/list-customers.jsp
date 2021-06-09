@@ -1,3 +1,4 @@
+<%@ page import="com.nawaz2000.spring.util.SortUtils" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -36,12 +37,32 @@
 				<input type="submit" value="search" class="add-button">
 			</form:form>
 			
+			
 			<!-- add, delete, update table -->
 			<table>
+			
+				<!-- construct a sort key for the first name -->
+				
+				<c:url var="sortFirstNameLink" value="list">
+					<c:param name="sort" value="<%= Integer.toString(SortUtils.FIRST_NAME) %>"/>
+				</c:url>
+				
+				<!-- constructing sort key for last name -->
+				
+				<c:url var="sortLastNameLink" value="list">
+					<c:param name="sort" value="<%= Integer.toString(SortUtils.LAST_NAME) %>"/>
+				</c:url>
+				
+				<!-- constructing sort key using email -->
+				
+				<c:url var="sortEmailLink" value="list">
+					<c:param name="sort" value="<%= Integer.toString(SortUtils.EMAIL) %>"/>
+				</c:url>
+			
 				<tr>
-					<th>First name</th>
-					<th>Last name</th>
-					<th>Email</th>
+					<th><a href="${sortFirstNameLink}">First name</a></th>				
+					<th><a href="${sortLastNameLink}">Last name</a></th>					
+					<th><a href="${sortEmailLink}">Email</a></th>					
 					<th>Action</th>
 				</tr>
 				
