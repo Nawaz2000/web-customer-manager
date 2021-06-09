@@ -35,6 +35,13 @@ public class CustomerController {
 	@Qualifier("customerService")
 	CustomerService customerService;
 
+	@GetMapping("/search")
+	public String searchCustomer(Model model, @RequestParam("searchName") String searchName) {
+		List<Customer> allCustomers = customerService.searchCustomers(searchName);
+		model.addAttribute("customers", allCustomers);
+		return "list-customers";
+	}
+	
 	@GetMapping("/list")
 	public String showCustomers(Model model) {
 		System.out.println("Hi there");
