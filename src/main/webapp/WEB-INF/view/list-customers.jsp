@@ -37,12 +37,6 @@
 				<input type="submit" value="search" class="add-button">
 			</form:form>
 			
-			<!-- default sort -->
-			<c:url var="defaultSort" value="list"></c:url>
-			<a href="${defaultSort}">default sort</a>
-			
-			<br><br>
-			
 			
 			<!-- add, delete, update table -->
 			<table>
@@ -50,19 +44,19 @@
 				<!-- construct a sort key for the first name -->
 				
 				<c:url var="sortFirstNameLink" value="list">
-					<c:param name="sort" value="<%= Integer.toString(SortUtils.FIRST_NAME) %>"/>
+					<c:param name="sort" value="${SortUtils.FIRST_NAME}"/>
 				</c:url>
 				
 				<!-- constructing sort key for last name -->
 				
 				<c:url var="sortLastNameLink" value="list">
-					<c:param name="sort" value="<%= Integer.toString(SortUtils.LAST_NAME) %>"/>
+					<c:param name="sort" value="${SortUtils.LAST_NAME}"/>
 				</c:url>
 				
 				<!-- constructing sort key using email -->
 				
 				<c:url var="sortEmailLink" value="list">
-					<c:param name="sort" value="<%= Integer.toString(SortUtils.EMAIL) %>"/>
+					<c:param name="sort" value="${SortUtils.EMAIL}"/>
 				</c:url>
 			
 				<tr>

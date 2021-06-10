@@ -65,28 +65,72 @@ public class CustomerDAOimpl {
 		Session session = sessionFactory.getCurrentSession();
 
 		String theFieldName = null;
+		String queryString = null;
+		Query<Customer> theQuery = null;
+		List<Customer> customers = null;
 
 		switch (sortField) {
-		case SortUtils.FIRST_NAME:
+		case 1:
 			theFieldName = "firstName";
+			// create a query
+			queryString = "from Customer order by " + theFieldName;
+			theQuery = session.createQuery(queryString, Customer.class);
+
+			// execute query and get result list
+			customers = theQuery.getResultList();
+			SortUtils.updateFirstName();
 			break;
-		case SortUtils.LAST_NAME:
+		case 2:
 			theFieldName = "lastName";
+			// create a query
+			queryString = "from Customer order by " + theFieldName;
+			theQuery = session.createQuery(queryString, Customer.class);
+
+			// execute query and get result list
+			customers = theQuery.getResultList();
+			SortUtils.updateLastName();
 			break;
-		case SortUtils.EMAIL:
+		case 3:
 			theFieldName = "email";
+			// create a query
+			queryString = "from Customer order by " + theFieldName;
+			theQuery = session.createQuery(queryString, Customer.class);
+
+			// execute query and get result list
+			customers = theQuery.getResultList();
+			SortUtils.updateEmail();
 			break;
+		case 10:
+			queryString = "from Customer";
+			theQuery = session.createQuery(queryString, Customer.class);
+
+			// execute query and get result list
+			customers = theQuery.getResultList();
+			SortUtils.updateFirstName();
+			break;
+		case 20:
+			queryString = "from Customer";
+			theQuery = session.createQuery(queryString, Customer.class);
+
+			// execute query and get result list
+			customers = theQuery.getResultList();
+			SortUtils.updateLastName();
+			break;
+		case 30:
+			queryString = "from Customer";
+			theQuery = session.createQuery(queryString, Customer.class);
+
+			// execute query and get result list
+			customers = theQuery.getResultList();
+			SortUtils.updateEmail();
 		default:
-			// if nothing matches the default to sort by lastName
-			theFieldName = "lastName";
+			// create a query
+			queryString = "from Customer";
+			theQuery = session.createQuery(queryString, Customer.class);
+
+			// execute query and get result list
+			customers = theQuery.getResultList();
 		}
-
-		// create a query
-		String queryString = "from Customer order by " + theFieldName;
-		Query<Customer> theQuery = session.createQuery(queryString, Customer.class);
-
-		// execute query and get result list
-		List<Customer> customers = theQuery.getResultList();
 
 		// return the results
 		return customers;
