@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Customer form</title>
 
 	<link rel="stylesheet" 
 		  type="text/css" 
@@ -30,7 +30,7 @@
 	</div>
 	
 	<div id = "container">
-		<h3>Save Customer</h3>
+		<h3>Customer details</h3>
 		<form:form action="saveCustomer" method="POST" modelAttribute="customer">
 				
 			<form:hidden path="id"/>
