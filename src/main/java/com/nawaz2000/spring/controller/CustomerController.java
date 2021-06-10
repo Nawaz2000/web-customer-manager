@@ -53,14 +53,10 @@ public class CustomerController {
 			int theSortField = Integer.parseInt(sort);
 			System.out.println("sort at controller: " + theSortField);
 			theCustomers = customerService.getCustomers(theSortField);
-			// update SortUtils
 		} else {
-			// no sort field provided ... default to sorting by last name
-//			theCustomers = customerService.getCustomers(SortUtils.LAST_NAME);
 			theCustomers = customerService.getAllCustomers();
 		}
-		
-		
+				
 		// add the customers to the model
 		model.addAttribute("customers", theCustomers);
 		

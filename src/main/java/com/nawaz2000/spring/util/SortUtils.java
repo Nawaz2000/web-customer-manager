@@ -28,18 +28,5 @@ public class SortUtils {
 		else
 			EMAIL/=10;
 	}
-
-	public static void update() {
-		if(FIRST_NAME == 1) {
-			FIRST_NAME*=10;
-			LAST_NAME*=10;
-			EMAIL*=10;
-		}else {
-			FIRST_NAME/=10;
-			LAST_NAME/=10;
-			EMAIL/=10;
-		}
-		
-	}
 	
 }

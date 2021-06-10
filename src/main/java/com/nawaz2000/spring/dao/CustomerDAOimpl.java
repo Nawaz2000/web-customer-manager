@@ -69,6 +69,8 @@ public class CustomerDAOimpl {
 		Query<Customer> theQuery = null;
 		List<Customer> customers = null;
 
+		
+		
 		switch (sortField) {
 		case 1:
 			theFieldName = "firstName";
@@ -79,6 +81,12 @@ public class CustomerDAOimpl {
 			// execute query and get result list
 			customers = theQuery.getResultList();
 			SortUtils.updateFirstName();
+			
+			if (SortUtils.LAST_NAME == 20)
+				SortUtils.LAST_NAME = 2;
+			if (SortUtils.EMAIL == 30)
+				SortUtils.EMAIL = 3;
+			
 			break;
 		case 2:
 			theFieldName = "lastName";
@@ -89,6 +97,12 @@ public class CustomerDAOimpl {
 			// execute query and get result list
 			customers = theQuery.getResultList();
 			SortUtils.updateLastName();
+			
+			if (SortUtils.FIRST_NAME == 10)
+				SortUtils.FIRST_NAME = 1;
+			if (SortUtils.EMAIL == 30)
+				SortUtils.EMAIL = 3;
+			
 			break;
 		case 3:
 			theFieldName = "email";
@@ -99,6 +113,12 @@ public class CustomerDAOimpl {
 			// execute query and get result list
 			customers = theQuery.getResultList();
 			SortUtils.updateEmail();
+			
+			if (SortUtils.FIRST_NAME == 10)
+				SortUtils.FIRST_NAME = 1;
+			if (SortUtils.LAST_NAME == 20)
+				SortUtils.LAST_NAME = 2;
+			
 			break;
 		case 10:
 			queryString = "from Customer";
@@ -123,13 +143,6 @@ public class CustomerDAOimpl {
 			// execute query and get result list
 			customers = theQuery.getResultList();
 			SortUtils.updateEmail();
-		default:
-			// create a query
-			queryString = "from Customer";
-			theQuery = session.createQuery(queryString, Customer.class);
-
-			// execute query and get result list
-			customers = theQuery.getResultList();
 		}
 
 		// return the results
